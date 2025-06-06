@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
-import '../style/scrap_collector/ScrapRequestDetails.css';
+
 
 const ScrapRequestDetails = () => {
     const { orderId } = useParams();

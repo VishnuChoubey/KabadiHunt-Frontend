@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../style/scrap_collector/Style.css';
-import '../style/scrap_collector/Responsive.css';
+// import '../style/scrap_collector/Style.css';
+// import '../style/scrap_collector/Responsive.css';
 
 const ScrapCollectorDashboard = () => {
   const [items, setItems] = useState([]);
