@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import "../style/Scrap_Collector/PendingPayments.css";
+import "../style/scrap_collector/PendingPayments.css";
 import rupeeImg from "../assets/rupee.png";
 const PendingPayments = () => {
     const profileImg = "http://127.0.0.1:8000" + localStorage.getItem("user_profile");
