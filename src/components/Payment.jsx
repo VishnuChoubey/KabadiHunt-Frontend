@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../style/Scrap_Collector/Payment.css'; // Assuming you have a separate CSS file
+// import '../style/Scrap_Collector/Payment.css'; // Assuming you have a separate CSS file
 
 const Payment = () => {
     const { order_id, user } = useParams();
