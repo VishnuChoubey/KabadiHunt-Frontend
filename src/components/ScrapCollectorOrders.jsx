@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import "../style/Scrap_Collector/Orders.css"; // You can extract the style into this file
+import "../style/scrap_collector/Orders.css"; // You can extract the style into this file
 
 const ScrapCollectorOrders = () => {
     const profileImg = "http://localhost:8080" + localStorage.getItem("user_profile");
