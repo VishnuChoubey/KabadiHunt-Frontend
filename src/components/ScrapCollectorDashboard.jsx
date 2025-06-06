@@ -174,7 +174,8 @@ const ScrapCollectorDashboard = () => {
                     className="nav-img"
                     alt="logout"
                   />
-                  <h3><Link onClick={logout}>Logout</Link></h3>
+                 <h3><button onClick={logout} className="logout-btn">Logout</button></h3>
+
                 </div>
               </div>
             </nav>
@@ -295,7 +296,7 @@ const ScrapCollectorDashboard = () => {
           </div>
         </div>
 
-        <script src="./index.js"></script>
+       
       </div>
     </>
   );

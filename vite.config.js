@@ -6,11 +6,20 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080', // Spring Boot backend
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false,
-        
-      }
-    }
-  }
+      },
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 1500, // increase warning limit (in KB)
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'], // example: separate vendor chunk
+        },
+      },
+    },
+  },
 })
