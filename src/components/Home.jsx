@@ -44,7 +44,7 @@ const Home = () => {
         <div>
             <div className="content">
                 <div className="content-left">
-                    <p>-Welcome to KabadiHunt</p>
+                    <p>Welcome to KabadiHunt</p>
                     <h1>
                         "Empowering Communities, <br /> Sustaining futures: Your Guide <br />
                         to Responsible Waste Disposal"

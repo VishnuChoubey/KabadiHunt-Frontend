@@ -491,8 +491,33 @@ i{
     .content-right img{
         display: none;
     }
+    .content-left{
+        padding:4px;
+        display: flex;
+        flex-direction: column;
+         gap:18px;
+    }
+    .content-left h1{
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .content-left h3{
+        text-align: center;
+    }
+    .content-left p{
+        text-align: center;
+        font-size:xx-large
+    }
     .about-left{
         width: 100%;
+        
+    }
+    .faq-section{
+        padding-top: 8px;
+    }
+
+    .faq-section h1{
+        font-size: 1.5em ;
     }
     .points{
         display: flex;
