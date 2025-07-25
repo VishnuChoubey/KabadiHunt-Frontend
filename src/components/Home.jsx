@@ -62,8 +62,8 @@ const Home = () => {
                         effortlessly with our platform
                     </h3>
                     <br />
-                    <button><Link to="/prices">PRICE LIST</Link></button>
-                    <button><Link to="/e-facility">LOCATE COLLECTOR</Link></button>
+                    <button className="content-btn"><Link to="/prices">PRICE LIST</Link></button>
+                    <button className="content-btn"><Link to="/e-facility">LOCATE COLLECTOR</Link></button>
                 </div>
 
                 <div className="content-right">
@@ -108,7 +108,7 @@ const Home = () => {
                         <br /><br />
                         <div className="btns">
                             <Link to="/contact" id="contact-btn">CONTACT US</Link>
-                            <Link to="/e-facility" id="recycle-btn">RECYCLE SERVICES</Link>
+                            <Link to="/e-facility" id="recycle-btn" style={{background:"#1fa1ed"}}>RECYCLE SERVICES</Link>
                         </div>
                     </div>
                     <div
@@ -151,7 +151,7 @@ const Home = () => {
                                 onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
                             >
                                 <span className={`arrow ${openFAQ === index ? "arrow-rotated" : ""}`}></span>
-                                <span style={{ backgroundColor: "white" }}>{question}</span>
+                                <span style={{ backgroundColor: "" }}>{question}</span>
                             </div>
                             <div className={`a ${openFAQ === index ? "a-opened" : ""}`}>
                                 <p>{answer}</p>

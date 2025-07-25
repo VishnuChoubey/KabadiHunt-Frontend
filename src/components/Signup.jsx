@@ -87,6 +87,7 @@ export const Signup = () => {
     };
 
     return (
+    <div className="main">
         <div className="form">
             <form onSubmit={handleSubmit}>
                 <h1>Welcome to ScrapBridge</h1>
@@ -179,6 +180,7 @@ export const Signup = () => {
                     <p>Already have an account? <Link to="/login">Login</Link></p>
                 </div>
             </form>
+        </div>
         </div>
     );
 };

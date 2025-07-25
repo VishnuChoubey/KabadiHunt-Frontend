@@ -5,13 +5,19 @@
 
 .row {
     display: flex;
+    border-radius: 12px;
+    margin:4px;
 }
 
 .col-1 {
     padding: 10px;
     width: 35vw;
-    max-height: 77vh;
+    margin-right: 4px;
+    max-height: 80vh;
     overflow-y: scroll;
+    border-radius: 12px;
+     background: linear-gradient(90deg, #dbeafe 60%, #60a5fa 100%);
+
 }
 
 .col-1 h1 {
@@ -41,6 +47,7 @@
     box-shadow: 1px 1px 5px 1px gray;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 20px;
+    border-radius: 12px;
 }
 
 /* New styles to align image and org name in one row */
@@ -51,6 +58,7 @@
     max-width: 100%;
     overflow: hidden;
     margin-bottom: 10px;
+    border-radius: 12px;
 }
 
 .facility-image {
@@ -58,6 +66,7 @@
     height: 50px;
     width: 50px;
     object-fit: cover;
+    border-radius: 12px;
 }
 
 .facility-card .org-name {
@@ -76,12 +85,14 @@
     padding: 8px;
     width: 150px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 12px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .col-2{
-    background-color: green;
+     background: linear-gradient(90deg, #dbeafe 60%, #60a5fa 100%);
     width: 100%;
+    border-radius: 12px;
+
 }
 #mapid {
     height: 80vh;

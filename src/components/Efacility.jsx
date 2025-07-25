@@ -185,8 +185,9 @@ const Efacility = () => {
                         ) : (
                             <h1>All Available Scrap Collectors</h1>
                         )}
-                        <form action="" method="GET">
+                        <form action="" method="GET" >
                             <input
+            
                                 type="text"
                                 placeholder="Search your Shopper"
                                 id="q"

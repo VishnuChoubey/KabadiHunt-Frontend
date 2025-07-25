@@ -26,32 +26,39 @@ body {
     font-family: 'Merriweather', serif;
 }
 /* Sidebar */
-#mySidebar { display: none; }
+/* #mySidebar { display: none; }
 .sidebar {
+    display:flex;
     height: 100vh;
     width: 250px;
-    position: fixed;
+    display: block;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #129dee;
     padding-top: 20px;
     transition: 0.5s;
-    overflow: hidden;
-    display: none;
+   
+ 
     align-items: center;
+   
     overflow: hidden;
     z-index: 10;
+    border-radius: 8px;
+    
+    
 }
 .sidebar a {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
-    color: white;
-    display: block;
+    
+   display: flex;
+ 
+   content-align:space-between;
     transition: 0.3s;
 }
 .sidebar a:hover {
-    background-color: #575D63;
+    
     border-radius: 10px;
 }
 .sidebar .closebtn {
@@ -62,32 +69,47 @@ body {
 }
 .closebtn {
     background-color: black;
-    color: white;
+   
     border: none;
     padding: 0px 5px;
     border-radius: 50%;
     cursor: pointer;
-}
+}*/
 .openbtn {
     font-size: 24px;
     font-weight: bolder;
     cursor: pointer;
     color: black;
     border: none;
-    background-color: white;
+    background-color: transparent;
+   
     margin-right: 10px;
 }
 .openbtn:hover { scale: 1.1; }
 .main-content {
     margin-left: 0;
     transition: margin-left .5s;
+} 
+
+sidebar{
+    sidebar:20px;
 }
+
+
 nav {
-    background-color: white; /* Background color for the navbar */
+   background: rgb(103, 174, 250);
+
+ /* Background color for the navbar */
     padding: 10px 10px; /* Padding for the navbar */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 12px;
+  
+     margin: 3px;
+      margin-bottom: 8px;
+      box-shadow: 1px 1px 10px rgb(88, 141, 240);
+    
 }
 
 .nav span button{
@@ -96,12 +118,12 @@ nav {
 }
 /* Logo styles */
 .logo{
-    background-color: white;
+   
 }
 .logo img{
     height: 35px;
     zoom: 150%;
-    background-color: white;
+    
     text-decoration: none;
     margin-bottom: -10px;
     border-radius: 50%;
@@ -113,7 +135,8 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-    background-color: white;
+   
+    border-radius: 12px;
 }
 
 .nav-links li {
@@ -127,7 +150,7 @@ nav {
 .nav-links a {
     color: black;
     text-decoration: none;
-    background-color: white;
+  
     padding: 5px;
     font-size: 1rem;
 }
@@ -138,7 +161,7 @@ nav {
 
 /* Button styles */
 .btn {
-background-color: white; /* Green background color */
+ /* Green background color */
 border: 2px solid #4e35f0;
 border-radius: 3px;
 color: #4e35f0;

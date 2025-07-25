@@ -4,8 +4,9 @@ import logo from '../assets/logo.png';
 import notificationIcon from '../assets/notification.png';
 import defaultProfile from '../assets/default.jpg';
 import '../style/Navbar.css';
+import '../style/Sidebar.css';
 
-export const Navbar = () => {
+export const Navbar = ({ toggleSidebar }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userName, setUserName] = useState('');
     const [profileImage, setProfileImage] = useState(defaultProfile);
@@ -49,16 +50,10 @@ export const Navbar = () => {
 
         fetchUserProfile();
     }, []);
+   
+  
 
-    const openNav = () => {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("nav-side-btn").style.display = "none";
-    };
-
-    const closeNav = () => {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("nav-side-btn").style.display = "block";
-    };
+  
 
     const logout = async () => {
         try {
@@ -80,7 +75,7 @@ export const Navbar = () => {
 
     return (
         <div>
-            <div id="mySidebar" className="sidebar">
+            {/* <div id="mySidebar" className="sidebar">
                 <button className="closebtn" onClick={closeNav}>&times;</button>
                 <Link to="/">Home</Link>
                 <Link to="/about">About Us</Link>
@@ -96,12 +91,13 @@ export const Navbar = () => {
                     </>
                 )}
                 {!isAuthenticated && <Link to="/login">Login</Link>}
-            </div>
+            </div> */}
+           
 
             <div className="main-content">
                 <nav>
                     <span style={{ display: 'flex', marginBottom: '5px' }}>
-                        <button className="openbtn" onClick={openNav} id="nav-side-btn" style={{ marginTop: '5px' }}>☰</button>
+                        <button className="openbtn" onClick={toggleSidebar} id="nav-side-btn" >☰</button>
                         <Link to="/" className="logo">
                             <img src={logo} alt="Logo" />
                         </Link>

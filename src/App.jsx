@@ -4,7 +4,7 @@ import {
   Route,
   useLocation
 } from 'react-router-dom';
-
+import { useState } from 'react';
 import AutoRefreshToken from './components/AutoRefreshToken.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import { Navbar } from './components/Navbar.jsx';
@@ -28,19 +28,21 @@ import PendingPayments from './components/PendingPayments.jsx';
 import Payment from './components/Payment.jsx';
 import ScrapCollectorProfile from './components/ScrapCollectorProfile.jsx';
 import AuthTest from './components/AuthTest.jsx';
+import Sidebar from './components/Sidebar.jsx';
 function AppContent() {
   const location = useLocation();
   const hideLayoutFor = ['/scrap-collector', '/orders', '/pending-order', '/scrap-collector/profile']; // add more paths if needed
   const shouldHideLayout = hideLayoutFor.includes(location.pathname) || location.pathname.startsWith('/scraprequest-details/') || location.pathname.startsWith('/payment/');
-
+     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={() => setIsSidebarOpen(prev => !prev)}/>
       <AutoRefreshToken />
-      {!shouldHideLayout && <Navbar />}
-
+      {!shouldHideLayout && <Navbar toggleSidebar={() => setIsSidebarOpen(prev => !prev)} />}
+     
       <Routes>
         <Route path="/" element={<Home />} />
-
+ 
         <Route path="/auth-test" element={<AuthTest />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

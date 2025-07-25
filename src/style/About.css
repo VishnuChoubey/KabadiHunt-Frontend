@@ -1,37 +1,54 @@
 .about {
-    background-color: white;
+   
     text-align: center;
     padding: 5%;
+    background: linear-gradient(90deg, #dbeafe 60%, #60a5fa 100%);
+    border-radius: 12px;
+     margin-bottom: 8px;
+      box-shadow: 1px 1px 10px rgb(88, 141, 240);
 }
 
 .about p {
     color: #4e35f0;
-    background-color: white;
+   
+    border-radius: 13px;
+    margin: 3px;
+    background-color: transparent;
+    border-radius: 12px;
+   
 }
 
 .about h1 {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+    background: transparent
+    
 }
 
 .about-area {
     display: flex;
     justify-content: space-around;
-    background-color: white;
+   
     text-align: left;
     align-items: center; /* Vertically align items */
+ 
+    border-radius: 12px;
+    
 }
 
 .about-left {
     font-weight: 400;
-    background-color: white;
+     box-shadow: 2px 4px 16px rgba(22, 163, 74, 0.15);
     width: 50%;
+    background: transparent;
+    border-radius: 12px;
+    padding: 4px;
 }
 
 .about-left p {
-    background-color: white;
+    box-shadow: 2px 4px 16px rgba(22, 163, 74, 0.15);
     color: black;
     font-weight: 400;
+    padding:4px;
 }
 
 .about-right {
@@ -49,13 +66,13 @@
 }
 
 .btns {
-    background-color: white;
+    background-color:transparent;
     text-align: left;
 }
 
 
 #contact-btn{
-    background-color: #4e35f0;
+    background-color: #1fa1ed;
     border: 1px solid #4e35f0;
     padding: 10px 20px;
     border-radius: 3px;
@@ -66,8 +83,8 @@
 
 }
 #recycle-btn{
-    background-color: white;
-    color: #4e35f0;
+    background-color:#1fa1ed;
+    color: #1fa1ed;
     text-decoration: none;
     border: 1px solid #4e35f0;
     padding: 10px 20px;
@@ -75,11 +92,11 @@
 }
 #contact-btn:hover{
     background-color: white;
-    color: #4e35f0;
+    color: #1fa1ed;
     border: 1px solid #4e35f0;
 }
 #recycle-btn:hover{
-    background-color: #4e35f0;
+    background-color: #1fa1ed;
     color: white;
     border: 1px solid white;
 }

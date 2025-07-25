@@ -15,7 +15,7 @@ const Payment = () => {
     const addPaymentStatus = async (transaction_id, username, owner_id, amount) => {
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/payment-status/${order_id}/${username}/${owner_id}/${amount}/${transaction_id}/`, {
+            const response = await fetch(`/api/payment-status/${order_id}/${username}/${owner_id}/${amount}/${transaction_id}/`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Payment = () => {
             }
 
 
-            const response = await fetch('http://127.0.0.1:8000/api/payment/', {
+            const response = await fetch('/api/payment/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const Payment = () => {
                     key: data.api_key,
                     amount: amountInPaise,
                     currency: "INR",
-                    name: "ScrapBridge",
+                    name: "KabadiHunt",
                     description: "Test Transaction",
                     image: "https://example.com/your_logo",
                     order_id: data.payment_id,
@@ -76,9 +76,9 @@ const Payment = () => {
                         window.location.href = "/scrap-collector";
                     },
                     prefill: {
-                        name: "Shivam Sharma",
-                        email: "shivam@241980@example.com",
-                        contact: "9953214480",
+                        name: "Vishnu Choubey",
+                        email: "vishnuChoubey9939@gmail.com",
+                        contact: "9939940039",
                     },
                     theme: {
                         color: "rgba(52,54,242,0.8)",

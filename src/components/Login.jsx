@@ -127,6 +127,7 @@ export const Login = () => {
     // };
 
     return (
+        <div className="logincontainer">
         <div className="form">
             <form onSubmit={handleSubmit}>
                 <h1>Welcome back!</h1>
@@ -197,6 +198,7 @@ export const Login = () => {
                     </p>
                 </span>
             </form>
+        </div>
         </div>
     );
 };

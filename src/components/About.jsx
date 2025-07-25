@@ -72,10 +72,10 @@ const About = () => {
             generations. Thank you for being part of the solution!
           </p>
           <br />
-          <div className="btns">
+         
             <Link to="/contact" id="contact-btn">CONTACT US</Link>
-            <Link to="/recycle" id="recycle-btn">RECYCLE SERVICES</Link>
-          </div>
+            <Link to="/recycle" id="recycle-btn" style={{background:"#1fa1ed"}}>RECYCLE SERVICES</Link>
+         
         </div>
         <div className="about-right" data-aos="zoom-in-down" >
           <img src={eWasteImage} alt=".." />

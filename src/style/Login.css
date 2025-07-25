@@ -1,13 +1,24 @@
+*{
+    margin:0;
+}
+
+
 .form{
     text-align: center;
     margin: auto;
     width: 450px;
     margin-top: 5%;
+    border-radius: 12px;
+     background: linear-gradient(90deg, #dbeafe 60%, #60a5fa 100%);
+     margin-bottom: 3%;
+     
+      box-shadow: 1px 1px 10px rgb(88, 141, 240);
 }
 .form form{
     text-align: left;
     padding: 20px;
     box-shadow: 1px 1px 10px 1px rgb(211, 211, 211);
+    border-radius: 12px;
 }
 .form form h1{
     text-align: center;
@@ -52,6 +63,7 @@
     color: white;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 12px;
 }
 #login-btn:hover{
     background-color: rgb(0, 0, 167);
