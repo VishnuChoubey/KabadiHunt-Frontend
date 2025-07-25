@@ -194,7 +194,7 @@ margin-right: 30px;
 }
 #notification{
     border: none;
-    background-color: white;
+    background-color: transparent;
     margin-right: 10px;
     height: 30px;
     margin-top: 5px;

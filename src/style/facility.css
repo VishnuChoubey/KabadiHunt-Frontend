@@ -97,6 +97,7 @@
 #mapid {
     height: 80vh;
     width: 100%;
+    border-radius: 12px;
 }
 
 @media screen and (max-width: 800px) {
