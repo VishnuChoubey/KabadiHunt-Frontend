@@ -1,7 +1,7 @@
 
                 .home-card {
                     display: flex;
-                    gap: 3rem;
+                  
                     align-items: center;
                     background: #fff;
                     border-radius: 12px;
@@ -119,12 +119,10 @@
                     .home-card {
                         flex-direction: column;
                        
-                     
-                       
                     }
                     .user-login-card {
                         padding: 1.5rem 1rem;
-                        max-width: 95%;
+                        
                     }
                     .user-login-title {
                         font-size: 1.5rem;

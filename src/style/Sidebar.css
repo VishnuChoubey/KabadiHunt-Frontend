@@ -97,7 +97,7 @@
 
 @media (max-width: 480px) {
   .sidebar {
-   width:60vw;
+   width:50vw;
     border-radius: 12px;
   }
 }
