@@ -1,111 +1,184 @@
-*{
-    margin:0;
-    padding:0;
+.registration-bg {
+  display: flex;
+  gap: 3rem;
+  background: linear-gradient(90deg, #dbeafe 60%, #60a5fa 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(22, 121, 163, 0.13), 0 2px 8px rgba(22,163,74,0.08);
+  padding: 2rem;
+  margin: 3px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
 }
 
-.main{
-  
-}
-
-
-.form{
-    text-align: center;
-    
-}
-.form form{
-    text-align: left;
+.registration-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px rgba(22, 125, 163, 0.1), 0 1.5px 6px rgba(22,163,74,0.08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 800px;
+  width: 750px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
  
-    box-shadow: 1px 1px 10px 1px rgb(211, 211, 211);
-   
 }
-.form form h1{
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+.registration-separator {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 7px;
+  background: #158fd6;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(22, 104, 163, 0.15);
+  border: 1.5px solid #15c7ef;
 }
-.form form p{
-    color: rgb(188, 188, 188);
-    font-weight: 700;
-    font-size: 14px;
-    text-align: center;
+
+.registration-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #158fd6;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
-.form form label{
-    margin-top: 10px;
+
+.registration-subtitle {
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 1.2rem;
+  text-align: center;
 }
-.form form input, .form form select{
-    padding: 8px;
-    color: rgb(57, 57, 57);
-    margin: 2px 10px 0px 0px;
-  
-    border-radius: 5px;
-    border: 1px solid rgb(202, 202, 202);
+
+.form-row {
+  display: flex;
+  gap: 0.7rem;
 }
-.form form select {
+
+.form-row > .form-group {
+  flex: 1;
+  margin-bottom: 0.7rem;
+}
+
+.form-group {
+  margin-bottom: 0.7rem;
+  text-align: left;
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #25a6e1;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1.5px solid #bbeef7;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: #f0fdf4;
+  transition: border-color 0.2s;
+}
+.form-group select {
     width: 100%;
+    padding: 0.55rem;
+    border: 1.5px solid #c6daf1;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+     background: #f0fdf4;
+    color: #333;
+    transition: border-color 0.2s;
+    appearance: none; /* Removes default arrow for custom styling */
 }
-.form form span {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+
+.form-group select:focus {
+    outline: none;
+    border-color: #14aff2;
+    background: #fff;
 }
-.form form span .right{
-    margin-top: 22px;
+
+.form-group input:focus {
+  outline: none;
+  border-color: #166fa3;
+  background: #fff;
 }
-.form form span .right a{
-    font-size: 14px;
-    text-decoration: none;
-    color: blue;
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.97rem;
+  margin-bottom: 0.6rem;
+  text-align: left;
 }
-#loginBtn{
-    display: flex;
-    justify-content: center;
+
+.success-message {
+  color: #1672a3;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  text-align: left;
 }
-#loginBtn a{
-    text-decoration: none;
-    font-size: 16px;
-    color: blue;
+
+.register-btn {
+  width: 100%;
+  padding: 0.7rem;
+ background: linear-gradient(90deg, #3986eb 60%, #076deb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 2px 8px rgba(22,163,74,0.10);
+  transition: background 0.2s;
 }
-#signup-btn{
-    text-align: center;
+
+.register-btn:hover {
+  background: linear-gradient(90deg, #2ab0f9 60%, #0ea5e9 100%);
+}
+
+.form-footer{
+  text-align: center !important;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 600px) {
+  .registration-bg {
+  display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .registration-card {
+    margin-left: 0;
+    padding: 1.2rem 1rem;
+    max-width: 95vw;
     width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: blue;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-    margin-top: 10px;
-}
-#signup-btn:hover{
-    background-color: rgb(0, 0, 181);
-}
-.google-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    height: 40px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    gap: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    margin: 5px 0px;
-}
-.google-btn a{
-    text-decoration: none;
-    color: black;
-    margin-top: -10px;
-}
-.google-btn img {
-    width: auto;
-    height: 30px;
-    border-radius: 50%;
-}
-@media screen and (max-width: 800px) {
-    .form{
-      
-    }
-}
+
+  }
+
+  .registration-title {
+    font-size: 1.6rem;
+  }
+
+  .registration-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .register-btn {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }}

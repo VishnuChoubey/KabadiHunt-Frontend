@@ -1,186 +1,197 @@
 import React, { useEffect, useState } from 'react';
 import '../style/Signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Signup = () => {
-    const [password, setPassword] = useState(""); // To get continous updating password
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [lengthError, setLengthError] = useState(''); // To show password constraints
-    const [matchError, setMatchError] = useState(''); // To show error is password and matching password does not match
-    const [formData, setFormData] = useState({ // Form data
-        username: '',
+    const [formData, setFormData] = useState({
+        name: '',
         email: '',
-        password: '',
+        phone: '',
         role: '',
+        password: '',
+        confirmPassword: '',
     });
 
+    const [lengthError, setLengthError] = useState('');
+    const [matchError, setMatchError] = useState('');
+    const [apiError, setApiError] = useState('');
+    const [apiSuccess, setApiSuccess] = useState('');
+    const navigate = useNavigate();
+
     useEffect(() => {
-        // Password contraints
-        if (password.length > 0 && password.length < 8) {
-            setLengthError('Password length must be at least 8 characters');
+        if (formData.password.length > 0 && formData.password.length < 8) {
+            setLengthError('Password must be at least 8 characters.');
         } else {
             setLengthError('');
         }
-        if (confirmPassword && password !== confirmPassword) {
-            setMatchError('Password and confirm password must match');
+
+        if (formData.confirmPassword && formData.password !== formData.confirmPassword) {
+            setMatchError('Passwords do not match.');
         } else {
             setMatchError('');
         }
-    }, [password, confirmPassword]);
-
-    const togglePassword = () => {
-        const pwd = document.getElementById('password');
-        const confirmPwd = document.getElementById('confirm-password');
-        const type = pwd.type === 'password' ? 'text' : 'password';
-        pwd.type = type;
-        confirmPwd.type = type;
-    };
+    }, [formData.password, formData.confirmPassword]);
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+        setApiError('');
+        setApiSuccess('');
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (lengthError || matchError || formData.username === "" || formData.email === "") {
-            alert('Please fix the errors before submitting.');
+        if (!formData.name || !formData.email || !formData.phone || !formData.role || !formData.password || !formData.confirmPassword) {
+            setApiError('Please fill all fields.');
             return;
         }
-        if(formData.role === '') {
-            alert('Please choose your role (category)');
+
+        if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            setApiError('Invalid email format.');
             return;
         }
-        if (formData.username.includes(" ")) {
-            // Replace whitespace with underscores
-            formData.username = formData.username.replace(/ /g, "_");
-            formData.username = formData.username.toLowerCase();
+
+        if (lengthError || matchError) {
+            setApiError('Please fix validation errors before submitting.');
+            return;
         }
+
         try {
-            const response = await fetch('http://localhost:8080/api/auth/register', { // Note port change to 8080
+            const response = await fetch('http://localhost:8080/api/auth/register', {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: formData.username,
-                    email: formData.email,
+                    username: formData.name,
+                    email: formData.email.toLowerCase(),
+                    phone: formData.phone,
                     password: formData.password,
-                    role: formData.role
+                    role: formData.role,
                 }),
             });
 
-            const result = await response.json();
-            if(response.status === 201) {
-                alert('User registered successfully!');
-                window.location.href = '/login';
-            } else if(response.status === 400) {
-                alert('All fields are required');
-            } 
+            if (response.status === 201) {
+                setApiSuccess('User registered successfully!');
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    role: '',
+                    password: '',
+                    confirmPassword: '',
+                });
+
+                setTimeout(() => {
+                    navigate('/login');
+                }, 1500);
+            } else {
+                const result = await response.json();
+                setApiError(result.message || 'Registration failed.');
+            }
         } catch (error) {
-            console.error('Error sending data to API:', error);
-            alert('Registration failed. Please try again.');
+            setApiError('Registration failed. Please try again.');
         }
-        setFormData({ username: '', email: '', password: '', role: '' });
-        setPassword('');
-        setConfirmPassword('');
     };
 
     return (
-    <div className="main">
-        <div className="form">
-            <form onSubmit={handleSubmit}>
-                <h1>Welcome to ScrapBridge</h1>
-                <br />
-
-                <label htmlFor="username">User name*</label>
-                <br />
-                <input
-                    type="text"
-                    placeholder="username"
-                    name="username"
-                    required
-                    value={formData.username}
-                    onChange={handleChange}
-                />
-                <br /><br />
-
-                <label htmlFor="email">Email*</label>
-                <br />
-                <input
-                    type="text"
-                    placeholder="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                <br /><br/>
-
-                <label htmlFor="password">Password*</label>
-                <br />
-                <input
-                    type="password"
-                    placeholder="password"
-                    name="password"
-                    id="password"
-                    value={password}
-                    required
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                        handleChange(e);
-                    }}
-                />
-                <span style={{ color: 'red', marginBottom:'8px' }}>{lengthError}</span>
-
-                <label htmlFor="confirm-password">Confirm Password*</label>
-                <br />
-                <input
-                    type="password"
-                    placeholder="confirm password"
-                    name="confirm_Password"
-                    id="confirm-password"
-                    value={confirmPassword}
-                    required
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                <span style={{ color: 'red', marginBottom:'8px' }}>{matchError}</span>
-                <label htmlFor="user-role">Select Role*</label>
-                <br /> 
-                <select name="role" id="role" value={formData.role} onChange={handleChange}>
-                    <option value="" disabled>--Select one option--</option>
-                    <option value="user">User</option>
-                    <option value="recycler">Scrap Collector</option>
-                </select>
-                <span>
-                    <span className="left">
-                        <input
-                            type="checkbox"
-                            id="show-password-checkbox"
-                            style={{ width: '20px' }}
-                            onChange={togglePassword}
-                        />
-                        <label htmlFor="show-password-checkbox">show password</label>
-                    </span>
-                    <span className="right">
-                        <a href="#">Forget password?</a>
-                    </span>
-                </span>
-                <input type="submit" value="Signup" id="signup-btn" />
-
-                <button className="google-btn" type="button">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
-                        alt="Google Logo"
-                    />
-                    <span>Login With Google</span>
-                </button>
-
-                <div id="loginBtn">
-                    <p>Already have an account? <Link to="/login">Login</Link></p>
+        <div className="registration-bg">
+            <div className="registration-center-wrap">
+                <div className="registration-card">
+                    <div className="registration-separator"></div>
+                    <h2 className="registration-title">Welcome to ScrapBridge</h2>
+                    <form onSubmit={handleSubmit} autoComplete="off">
+                        <div className="form-row">
+                            <div className="form-group">
+                                <label>Name:</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    placeholder="Full name"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Email:</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="Email"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group">
+                                <label>Phone:</label>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    placeholder="Phone number"
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label>Role:</label>
+                                <select
+                                    name="role"
+                                    value={formData.role}
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <option value="">Select role</option>
+                                    <option value="user">user</option>
+                                    <option value="recycler">recycler</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group">
+                                <label>Password:</label>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    placeholder="Password"
+                                    required
+                                />
+                                {lengthError && <p className="error-message">{lengthError}</p>}
+                            </div>
+                            <div className="form-group">
+                                <label>Confirm Password:</label>
+                                <input
+                                    type="password"
+                                    name="confirmPassword"
+                                    value={formData.confirmPassword}
+                                    onChange={handleChange}
+                                    placeholder="Confirm password"
+                                    required
+                                />
+                                {matchError && <p className="error-message">{matchError}</p>}
+                            </div>
+                        </div>
+                        {apiError && <p className="error-message">{apiError}</p>}
+                        {apiSuccess && <p className="success-message">{apiSuccess}</p>}
+                        <button type="submit" className="register-btn">Sign Up</button>
+                        <div className="form-footer">
+                            <p>
+                                Already have an account? <Link to="/login">Login</Link>
+                            </p>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
+            </div>
         </div>
     );
 };

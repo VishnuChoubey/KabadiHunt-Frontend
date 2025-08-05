@@ -1,128 +1,130 @@
-.recycleform {
-    text-align: center;
-    width: 60%;
-    margin: auto;
-    margin-top: 5%;
-    padding: 10px;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    overflow-y: auto; /* Allow vertical scroll if needed */
-    max-height: 90vh; /* Prevent the form from growing taller than 90% of the viewport */
-    display: flex;
-    flex-direction: column; /* Ensure form elements stack vertically */
-    justify-content: flex-start; /* Align content from the top */
+/* Background and card styling */
+.recycle-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #dbeafe 60%, #60a5fa 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(22, 121, 163, 0.13), 0 2px 8px rgba(22,163,74,0.08);
+ 
+}
+
+.recycle-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 32px rgba(22, 125, 163, 0.1), 0 1.5px 6px rgba(22,163,74,0.08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+}
+
+.recycle-separator {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 7px;
+  background: #158fd6;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(22, 104, 163, 0.15);
+  border: 1.5px solid #15c7ef;
+}
+
+.recycle-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #158fd6;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
 .recycleform form {
-    text-align: center;
-    margin: auto;
-    width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
 }
 
-.recycleform h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 1%;
+.recycleform label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #25a6e1;
 }
 
-form .row-1, form .row-2, form .row-3, form .row-4 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    text-align: left;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    gap: 10px; /* Add gap between form elements */
+.recycleform input,
+.recycleform select {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1.5px solid #bbeef7;
+
+  font-size: 1rem;
+  background: #f0fdf4;
+  transition: border-color 0.2s;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
-form .row-1 .col-1, form .row-2 .col-1, form .row-3 .col-1 {
-    flex: 1;
-    min-width: 220px; /* Set a min width to ensure input doesn't get too small */
-}
-
-form .row-1 .col-2, form .row-2 .col-2 {
-    flex: 1;
-}
-
-form .row-3 {
-    justify-content: left;
-    margin-left: 20px;
-}
-
-.col-1 label, .col-2 label, .col-3 label {
-    margin-bottom: 10px;
-}
-
-.col-1 input, .col-2 input, .col-3 input, .col-1 select, .col-2 select {
-    width: 100%; /* Ensure inputs take full width */
-    padding: 8px;
-    margin-top: 3px;
-    box-sizing: border-box; /* Include padding and border in the width calculation */
+.recycleform input:focus,
+.recycleform select:focus {
+  outline: none;
+  border-color: #166fa3;
+  background: #fff;
 }
 
 #recycle-btn {
-    width: 80%;
-    margin: 3% 1% 2% 1%;
-    background-color: blue;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    transition: ease-in 0.2s;
-    cursor: pointer;
+  width: 100%;
+  background: linear-gradient(90deg, #3986eb 60%, #076deb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 2px 8px rgba(22,163,74,0.10);
+  transition: background 0.2s;
+  padding: 0.7rem;
 }
 
 #recycle-btn:hover {
-    background-color: rgb(5, 14, 183);
-    scale: 1.01;
+  background: linear-gradient(90deg, #2ab0f9 60%, #0ea5e9 100%);
 }
 
 .loader {
-    font-size: 24px;
-    color: #007bff;
-    text-align: center;
-    margin-top: 20px;
+  font-size: 24px;
+  color: #007bff;
+  text-align: center;
+  margin-top: 20px;
 }
 
-/* Responsive for medium-sized screens (max-width: 1000px) */
-@media screen and (max-width: 1000px) {
-    .recycleform {
-        width: 80%;
-    }
-    #recycle-btn {
-        width: 70%;
-    }
-
-    form .row-1, form .row-2, form .row-3, form .row-4 {
-        display: block;
-        justify-content: center;
-    }
-
-    .col-1 input, .col-2 input {
-        width: 100%; /* Ensure inputs fit within screen */
-        margin: 10px auto;
-    }
-
-    .col-1 select, .col-2 select {
-        width: 100%; /* Ensure select boxes fit within screen */
-        margin: 10px auto;
-    }
-}
-
-/* Responsive for small screens (max-width: 800px) */
-@media screen and (max-width: 800px) {
-    form .row-1, form .row-2, form .row-3, form .row-4 {
-        display: block;
-    }
-
-    .col-1 input, .col-2 input {
-        width: 100%; /* Ensure inputs take full width */
-        margin: 10px auto;
-    }
-
-    .col-1 select, .col-2 select {
-        width: 100%; /* Ensure select boxes take full width */
-        margin: 10px auto;
-    }
-
-    #recycle-btn {
-        width: 100%; /* Ensure the button takes full width on mobile */
-    }
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .recycle-bg {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    min-height: 100vh;
+  }
+  .recycle-card {
+    padding: 1.2rem 1rem;
+    max-width: 95vw;
+    width: 100%;
+  }
+  .recycle-title {
+    font-size: 1.6rem;
+  }
+  #recycle-btn {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
 }

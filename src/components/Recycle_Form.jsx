@@ -137,58 +137,94 @@ const Recycle_Form = () => {
 
     return (
         <>
-            {item?.organisationName ? (
-                <div className="recycleform">
-                    <h1>{item.organisationName.toUpperCase()}</h1>
-                    <form action="" method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
-                        <div className="row-1">
-                            <div className="col-1">
-                                <label>Select item type*</label>
-                                <select name="item_type" id="brandSelect" required value={formData.item_type} onChange={handleChange}>
-                                    <option value="">Select type</option>
-                                    <option value="paper">Paper</option>
-                                    <option value="iron">Iron</option>
-                                    <option value="copper">Copper</option>
-                                    <option value="ewaste">E-waste</option>
-                                    <option value="plastic">Plastic</option>
-                                </select>
+        {item?.organisationName ? (
+            <div className="registration-bg">
+                <div className="registration-center-wrap">
+                    <div className="registration-card">
+                        <div className="registration-separator"></div>
+                        <h2 className="registration-title">{item.organisationName.toUpperCase()}</h2>
+                        <form onSubmit={handleSubmit} autoComplete="off">
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label>Select item type*</label>
+                                    <select
+                                        name="item_type"
+                                        id="brandSelect"
+                                        required
+                                        value={formData.item_type}
+                                        onChange={handleChange}
+                                    >
+                                        <option value="">Select type</option>
+                                        <option value="paper">Paper</option>
+                                        <option value="iron">Iron</option>
+                                        <option value="copper">Copper</option>
+                                        <option value="ewaste">E-waste</option>
+                                        <option value="plastic">Plastic</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Select Date of pickup*</label>
+                                    <input
+                                        type="date"
+                                        name="date"
+                                        required
+                                        value={formData.date}
+                                        onChange={handleChange}
+                                    />
+                                </div>
                             </div>
-                            <div className="col-1">
-                                <label>Select Date of pickup*</label>
-                                <input type="date" name="date" required value={formData.date} onChange={handleChange} />
+
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label>Phone number*</label>
+                                    <input
+                                        type="tel"
+                                        placeholder="0000"
+                                        name="phone"
+                                        pattern="[0-9]{10}"
+                                        title="Enter 10 digit phone number"
+                                        required
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Scrap weight*</label>
+                                    <input
+                                        type="number"
+                                        placeholder="in grams"
+                                        name="weight"
+                                        required
+                                        value={formData.weight}
+                                        onChange={handleChange}
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="row-2">
-                            <div className="col-1">
-                                <label>Phone number*</label>
-                                <input type="tel" placeholder="0000" name="phone" pattern="[0-9]{10}" title="Enter 10 digit phone number" required value={formData.phone} onChange={handleChange} />
-
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label>Upload items image</label>
+                                    <input
+                                        type="file"
+                                        name="image"
+                                        required
+                                        onChange={handleChange}
+                                    />
+                                </div>
                             </div>
-                            <div className="col-1">
-                                <label>Scrap weight*</label>
-                                <input type="number" placeholder="in grams" name="weight" required value={formData.weight} onChange={handleChange} />
-                            </div>
-                        </div>
 
-                        <div className="row-3">
-                            <div className="col-1">
-                                <label>Upload items image</label>
-                                <input type="file" name="image" required onChange={handleChange} />
-                            </div>
-                        </div>
+                            <input id="latitude" name="latitude" type="hidden" value={latitude} />
+                            <input id="longitude" name="longitude" type="hidden" value={longitude} />
 
-                        <input id="latitude" name="latitude" type="hidden" value={latitude} />
-                        <input id="longitude" name="longitude" type="hidden" value={longitude} />
-
-                        <input type="submit" value="SUBMIT" id="recycle-btn" />
-                    </form>
+                            <button type="submit" className="register-btn">SUBMIT</button>
+                        </form>
+                    </div>
                 </div>
-            ) : (
-                <div className="loader"><img src={loader} alt="" /><br />Check if you are logged-In or wait for few seconds</div>
-            )}
-        </>
-    );
+            </div>
+        ) : (
+            <div className="loader"><img src={loader} alt="" /><br />Check if you are logged-In or wait for few seconds</div>
+        )}
+        </>);
 };
 
 export default Recycle_Form;
